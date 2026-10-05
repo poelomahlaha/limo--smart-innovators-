@@ -33,23 +33,27 @@ I-Type: [ imm[11:0] (12b)        | rs1 (4b) | funct3 (3b) | rd (4b) | opcode (10
 S-Type: [ imm[11:4] (8b)  | rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[3:0] (4b) | opcode (10b) ]
 B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b) | opcode (10b) ]```
 
-4. Glossary & Instruction Set (A3, A4)
-Orthography Note: Apostrophes in Sesotho orthography (e.g., ts', ch') are ignored by the assembler lexer[cite: 2]. sutha_ts' and sutha_ts are treated as identical tokens[cite: 2].
 
-Mnemonic	Sesotho Meaning	Type	Opcode	Funct3	Operation	RV32I Equivalent
-eketsa	Add	R	0110011	000	R[rd] <- R[rs1] + R[rs2]	add
-fokotsa	Subtract	R	0110011	000	R[rd] <- R[rs1] - R[rs2]	sub
-eketsa_e	Add Immediate	I	0010011	000	R[rd] <- R[rs1] + sign_ext(imm)	addi
-mmoho	AND	R	0110011	111	R[rd] <- R[rs1] & R[rs2]	and
-kapa	OR	R	0110011	110	R[rd] <- R[rs1] | R[rs2]	or
-sutha_ts	Shift Right Logical	I	0010011	101	R[rd] <- R[rs1] >> imm[4:0]	srli
-jarolla	Load Word	I	0000011	010	R[rd] <- M[R[rs1] + imm]	lw
-boloka	Store Word	S	0100011	010	M[R[rs1] + imm] <- R[rs2]	sw
-lekana	Branch Equal	B	1100011	000	if R[rs1] == R[rs2], PC <- PC + imm	beq
-fapana	Branch Not Equal	B	1100011	001	if R[rs1] != R[rs2], PC <- PC + imm	bne
-5. Hand-Encoded Instruction Examples (A5)
-Example 1: eketsa r3, r1, r2 (R-Type)
-Format: funct7 | rs2 | rs1 | funct3 | rd | opcode
+## 4. Glossary & Instruction Set (A3, A4)
+
+* **Orthography Note**: Apostrophes in Sesotho orthography (e.g., `ts'`, `ch'`) are ignored by the assembler lexer[cite: 2]. `sutha_ts'` and `sutha_ts` are treated as identical tokens[cite: 2].
+
+| Mnemonic | Sesotho Meaning | Type | Opcode | Funct3 | Operation | RV32I Equivalent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `eketsa` | Add | R | `0110011` | `000` | R[rd] <- R[rs1] + R[rs2] | `add` |
+| `fokotsa` | Subtract | R | `0110011` | `000` | R[rd] <- R[rs1] - R[rs2] | `sub` |
+| `eketsa_e` | Add Immediate | I | `0010011` | `000` | R[rd] <- R[rs1] + sign_ext(imm) | `addi` |
+| `mmoho` | AND | R | `0110011` | `111` | R[rd] <- R[rs1] & R[rs2] | `and` |
+| `kapa` | OR | R | `0110011` | `110` | R[rd] <- R[rs1] \| R[rs2] | `or` |
+| `sutha_ts` | Shift Right Logical | I | `0010011` | `101` | R[rd] <- R[rs1] >> imm[4:0] | `srli` |
+| `jarolla` | Load Word | I | `0000011` | `010` | R[rd] <- M[R[rs1] + imm] | `lw` |
+| `boloka` | Store Word | S | `0100011` | `010` | M[R[rs1] + imm] <- R[rs2] | `sw` |
+| `lekana` | Branch Equal | B | `1100011` | `000` | if R[rs1] == R[rs2], PC <- PC + imm | `beq` |
+| `fapana` | Branch Not Equal | B | `1100011` | `001` | if R[rs1] != R[rs2], PC <- PC + imm | `bne` |
+
+
+
+
 
 Fields: 0000000 | 0010 (r2) | 0001 (r1) | 000 | 0011 (r3) | 0110011
 
