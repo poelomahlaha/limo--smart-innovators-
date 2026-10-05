@@ -33,6 +33,9 @@ I-Type: [ imm[11:0] (12b)        | rs1 (4b) | funct3 (3b) | rd (4b) | opcode (10
 S-Type: [ imm[11:4] (8b)  | rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[3:0] (4b) | opcode (10b) ]
 B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b) | opcode (10b) ]
 
+
+
+
 ## 4. Glossary & Instruction Set (A3, A4)
 
 * **Orthography Note**: Apostrophes in Sesotho orthography (e.g., `ts'`, `ch'`) are ignored by the assembler lexer[cite: 2]. `sutha_ts'` and `sutha_ts` are treated as identical tokens[cite: 2].
@@ -49,3 +52,23 @@ B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b
 | `boloka` | Store Word | S | `0100011` | `010` | $M[R[rs1] + \text{imm}] \leftarrow R[rs2]$ | `sw` |
 | `lekana` | Branch Equal | B | `1100011` | `000` | if $R[rs1] == R[rs2]$, $PC \leftarrow PC + imm$ | `beq` |
 | `fapana` | Branch Not Equal | B | `1100011` | `001` | if $R[rs1] \neq R[rs2]$, $PC \leftarrow PC + imm$ | `bne` |
+
+## 5. Hand-Encoded Instruction Examples (A5)
+
+### Example 1: `eketsa r3, r1, r2` (R-Type)
+* **Format**: `funct7 | rs2 | rs1 | funct3 | rd | opcode`
+* **Fields**: `0000000 | 0010 (r2) | 0001 (r1) | 000 | 0011 (r3) | 0110011`
+* **Binary**: `000000000100001000000110110011`
+* **Hexadecimal**: `0x002081B3`
+
+### Example 2: `eketsa_e r5, r0, 10` (I-Type)
+* **Format**: `imm[11:0] | rs1 | funct3 | rd | opcode`
+* **Fields**: `000000001010 (10) | 0000 (r0) | 000 | 0101 (r5) | 0010011`
+* **Binary**: `0000000010100000000001010010011`
+* **Hexadecimal**: `0x00A00293`
+
+### Example 3: `jarolla r6, 4(r2)` (I-Type)
+* **Format**: `imm[11:0] | rs1 | funct3 | rd | opcode`
+* **Fields**: `000000000100 (4) | 0010 (r2) | 010 | 0110 (r6) | 0000011`
+* **Binary**: `000000000100001001001100000011`
+* **Hexadecimal**: `0x00412303`
