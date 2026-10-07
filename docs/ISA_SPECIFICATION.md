@@ -33,7 +33,7 @@ I-Type: [ imm[11:0] (12b)        | rs1 (4b) | funct3 (3b) | rd (4b) | opcode (10
 S-Type: [ imm[11:4] (8b)  | rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[3:0] (4b) | opcode (10b) ]
 B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b) | opcode (10b) ]```
 
-
+```
 ## 4. Glossary & Instruction Set (A3, A4)
 
 * **Orthography Note**: Apostrophes in Sesotho orthography (e.g., `ts`, `ch`) are ignored by the assembler lexer and `sutha_ts` are treated as identical tokens.
