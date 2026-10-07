@@ -36,8 +36,6 @@ B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b
 
 ## 4. Glossary & Instruction Set (A3, A4)
 
-## 4. Glossary & Instruction Set (A3, A4)
-
 * **Orthography Note**: Apostrophes in Sesotho orthography (e.g., `ts`, `ch`) are ignored by the assembler lexer and `sutha_ts` are treated as identical tokens.
 
 | Mnemonic | Sesotho Meaning | Type | Opcode | Funct3 | Operation | RV32I Equivalent |
