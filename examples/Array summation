@@ -1,0 +1,15 @@
+# Program 1: Array Summation
+# r3: Base address / Sum output
+# r5: Loop counter
+# r6: Loaded value
+
+    eketsa_e r3, r0, 0       # sum = 0
+    eketsa_e r5, r0, 3       # count = 3
+    eketsa_e r7, r0, 100     # base memory address = 100
+
+LIHELE:
+    jarolla  r6, 0(r7)       # load element from memory
+    eketsa   r3, r3, r6      # sum += element
+    eketsa_e r7, r7, 4       # address += 4
+    fokotsa  r5, r5, 1       # count--
+    fapana   r5, r0, LIHELE  # if count != 0 goto LIHELE
