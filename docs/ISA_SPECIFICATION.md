@@ -36,7 +36,9 @@ B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b
 
 ## 4. Glossary & Instruction Set (A3, A4)
 
-* **Orthography Note**: Apostrophes in Sesotho orthography (e.g., `ts'`, `ch'`) are ignored by the assembler lexer[cite: 2]. `sutha_ts'` and `sutha_ts` are treated as identical tokens[cite: 2].
+## 4. Glossary & Instruction Set (A3, A4)
+
+* **Orthography Note**: Apostrophes in Sesotho orthography (e.g., `ts`, `ch`) are ignored by the assembler lexer and `sutha_ts` are treated as identical tokens.
 
 | Mnemonic | Sesotho Meaning | Type | Opcode | Funct3 | Operation | RV32I Equivalent |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -44,7 +46,7 @@ B-Type: [ imm[12|10:5] (7b)| rs2 (4b) | rs1 (4b) | funct3 (3b) | imm[4:1|11] (4b
 | `fokotsa` | Subtract | R | `0110011` | `000` | R[rd] <- R[rs1] - R[rs2] | `sub` |
 | `eketsa_e` | Add Immediate | I | `0010011` | `000` | R[rd] <- R[rs1] + sign_ext(imm) | `addi` |
 | `mmoho` | AND | R | `0110011` | `111` | R[rd] <- R[rs1] & R[rs2] | `and` |
-| `kapa` | OR | R | `0110011` | `110` | R[rd] <- R[rs1] \| R[rs2] | `or` |
+| `kapa` | OR | R | `0110011` | `110` | R[rd] <- R[rs1] | R[rs2] | `or` |
 | `sutha_ts` | Shift Right Logical | I | `0010011` | `101` | R[rd] <- R[rs1] >> imm[4:0] | `srli` |
 | `jarolla` | Load Word | I | `0000011` | `010` | R[rd] <- M[R[rs1] + imm] | `lw` |
 | `boloka` | Store Word | S | `0100011` | `010` | M[R[rs1] + imm] <- R[rs2] | `sw` |
