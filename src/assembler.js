@@ -177,4 +177,8 @@ class LimoAssembler {
 }
 
 // Export for browser usage
-window.LimoAssembler = LimoAssembler;
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = LimoAssembler;
+} else {
+    window.LimoAssembler = LimoAssembler;
+}
