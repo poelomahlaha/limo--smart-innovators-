@@ -1,0 +1,16 @@
+# M3 Integration Test: Summation Loop with Hazards
+# Setup initial values
+eketsa_e r1, r0, 0     # r1 = sum = 0
+eketsa_e r2, r0, 5     # r2 = counter = 5
+eketsa_e r3, r0, 1     # r3 = decrement step = 1
+
+loop_start:
+fapana r2, r0, loop_end # If counter == 0, exit loop
+eketsa r1, r1, r2      # sum = sum + counter (RAW hazard test)
+eketsa_e r2, r2, -1    # counter = counter - 1
+boloka r1, 0(r0)       # Store current sum to memory address 0
+jarolla r4, 0(r0)      # Load back from memory (Load-use hazard test)
+fapana r0, r0, loop_start # Unconditional-style jump back to start
+
+loop_end:
+# Execution finished successfully
