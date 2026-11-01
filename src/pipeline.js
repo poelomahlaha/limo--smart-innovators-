@@ -103,3 +103,43 @@ class LimoPipeline {
 }
 
 window.LimoPipeline = LimoPipeline;
+
+
+/**
+ * LIMO Pipeline Performance Profiler
+ */
+class PipelineProfiler {
+    constructor() {
+        this.clockCycles = 0;
+        this.instructionsRetired = 0;
+        this.stallCycles = 0;
+        this.branchMispredictions = 0;
+    }
+
+    tickCycle() {
+        this.clockCycles++;
+    }
+
+    retireInstruction() {
+        this.instructionsRetired++;
+    }
+
+    recordStall() {
+        this.stallCycles++;
+        this.clockCycles++; // Stalls add a clock cycle
+    }
+
+    getCPI() {
+        if (this.instructionsRetired === 0) return 0.00;
+        return (this.clockCycles / this.instructionsRetired).toFixed(2);
+    }
+
+    getStats() {
+        return {
+            cycles: this.clockCycles,
+            retired: this.instructionsRetired,
+            stalls: this.stallCycles,
+            cpi: this.getCPI()
+        };
+    }
+}
