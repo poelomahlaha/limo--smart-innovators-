@@ -187,3 +187,38 @@
     </script>
 </body>
 </html>
+
+
+<!-- M3 Simulator Dashboard UI Component -->
+<div id="limo-debugger" class="dashboard-container">
+    <!-- Simulation Control Toolbar -->
+    <div class="toolbar">
+        <button id="btn-run" class="btn primary">Run</button>
+        <button id="btn-pause" class="btn">Pause</button>
+        <button id="btn-step" class="btn">Step (1 Cycle)</button>
+        <button id="btn-reset" class="btn danger">Reset</button>
+        <span class="metrics-display">Cycles: <strong id="val-cycles">0</strong> | Instructions: <strong id="val-inst">0</strong> | CPI: <strong id="val-cpi">0.00</strong></span>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Pipeline Stage Inspector -->
+        <div class="panel">
+            <h3>Pipeline Stages</h3>
+            <ul class="pipeline-stages">
+                <li><strong>IF:</strong> <span id="pipe-if">--</span></li>
+                <li><strong>ID:</strong> <span id="pipe-id">--</span></li>
+                <li><strong>EX:</strong> <span id="pipe-ex">--</span></li>
+                <li><strong>MEM:</strong> <span id="pipe-mem">--</span></li>
+                <li><strong>WB:</strong> <span id="pipe-wb">--</span></li>
+            </ul>
+        </div>
+
+        <!-- Register File Viewer (r0 - r15) -->
+        <div class="panel">
+            <h3>Register File</h3>
+            <div id="register-grid" class="reg-grid">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+</div>
