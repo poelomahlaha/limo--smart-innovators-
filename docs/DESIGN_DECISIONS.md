@@ -2,9 +2,6 @@
 
 ### File 2: `docs/DESIGN_DECISIONS.md`
 
-Open `docs/DESIGN_DECISIONS.md` and paste the following content[cite: 2, 3]:
-
-```markdown
 # LIMO Design-Decision Log (A6)
 
 ### (a) Register-File Size Impact
