@@ -68,7 +68,7 @@ class LimoAssembler {
                 const labelName = parts[0].trim();
                 
                 if (symbolTable[labelName] !== undefined) {
-                    errors.push({ line: lineNum, message: `Duplicate label definition: '${labelName'` });
+                    errors.push({ line: lineNum, message: `Duplicate label definition: '${labelName}'` });
                 }
                 
                 symbolTable[labelName] = currentAddress;
